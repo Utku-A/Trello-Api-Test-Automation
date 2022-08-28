@@ -11,12 +11,11 @@ public class TrelloTest {
 
     @Test
     public void TS001() {
-        String boardID,card1ID,card2ID,boardListID;
+        String boardID,card1ID,card2ID;
 
         boardID = board.createBoard("TestBoard1");
-        boardListID = board.getListID(boardID);
-        card1ID = card.createCard("İlk Kart",boardListID);
-        card2ID = card.createCard("İkici Kart",boardListID);
+        card1ID = card.createCard("İlk Kart", board.getListID(boardID));
+        card2ID = card.createCard("İkici Kart", board.getListID(boardID));
         card
                 .updateCardName(new String[]{card1ID, card2ID},"Yeni Kart İsmi")
                 .deleteCard(card1ID)
